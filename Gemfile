@@ -7,6 +7,12 @@ gem 'paperclip'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', require: false
+end
+
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
