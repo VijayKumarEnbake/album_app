@@ -13,7 +13,7 @@
  </p>
  <p>
  	<% unless @album.photos.empty? %>
- 	 <% @album.photos.each do |pic| %>
+ 	 <% @album.photos.order(id: :asc).each do |pic| %>
  	  <%= image_tag pic.image.url %>
  <p>  <%= form_for pic do |f| %>
  	  <%= f.label :tags %>
