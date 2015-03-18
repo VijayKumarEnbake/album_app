@@ -1,0 +1,32 @@
+ <p>
+    <strong> Name:</strong>
+    <%= @album.name %>
+ </p>
+
+ <p>
+    <strong> Description:</strong>
+    <%= @album.description %>
+ </p>
+ 
+ <p>
+ 	<strong> Photos</strong>
+ </p>
+ <p>
+ 	<% unless @album.photos.empty? %>
+ 	 <% @album.photos.each do |pic| %>
+ 	  <%= image_tag pic.image.url %>
+ <p>  <%= form_for pic do |f| %>
+ 	  <%= f.label :tags %>
+ 	  <%= f.text_field :tags %>
+ 	  <%= f.submit "save" %>
+ 	  <% end %>
+ 	  <%= link_to "Delete", pic,
+            :data => { :confirm => "Are you sure?" },
+            :method => :delete
+          %></p>
+ 	 <% end %>
+ 	<% end%>
+ </p>
+
+ <%= link_to 'Back', albums_path %>
+ <%= link_to 'Edit', edit_album_path(@album) %>
